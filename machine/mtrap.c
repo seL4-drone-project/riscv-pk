@@ -9,6 +9,7 @@
 #include "uart.h"
 #include "uart16550.h"
 #include "uart_litex.h"
+#include "uart_lite.h"
 #include "finisher.h"
 #include "fdt.h"
 #include "unprivileged_memory.h"
@@ -30,6 +31,8 @@ static uintptr_t mcall_console_putchar(uint8_t ch)
     uart16550_putchar(ch);
   } else if (uart_litex) {
     uart_litex_putchar(ch);
+  } else if (uart_lite) {
+    uart_lite_putchar(ch);
   } else if (htif) {
     htif_console_putchar(ch);
   }
