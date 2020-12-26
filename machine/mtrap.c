@@ -77,6 +77,8 @@ static uintptr_t mcall_console_getchar()
     return uart16550_getchar();
   } else if (uart_litex) {
     return uart_litex_getchar();
+  } else if (uart_lite) {
+    return uart_lite_getchar();
   } else if (htif) {
     return htif_console_getchar();
   } else {
