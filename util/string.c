@@ -47,6 +47,17 @@ void* memset(void* dest, int byte, size_t len)
   return dest;
 }
 
+int memcmp(const void* s1, const void* s2, size_t len)
+{
+  unsigned char c1, c2;
+  for (size_t i = 0; i < len; i++) {
+    int diff = ((char *) s1)[i] != ((char *) s2)[i];
+    if (diff)
+      return diff;
+  }
+  return 0;
+}
+
 size_t strlen(const char *s)
 {
   const char *p = s;
